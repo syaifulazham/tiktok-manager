@@ -3,6 +3,7 @@ import { generateTikTokConsult } from '@/lib/openai';
 import { TikTokConsultFormData } from '@/lib/utils';
 import prisma from '@/lib/prisma';
 
+export const runtime = 'edge';
 export const maxDuration = 300; // Set maximum duration to 300 seconds (5 minutes)
 
 export async function POST(request: NextRequest) {

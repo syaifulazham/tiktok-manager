@@ -9,6 +9,8 @@ import { ResultCard } from '@/components/result-card';
 import { TikTokConsultFormData, TikTokConsultResult } from '@/lib/utils';
 import { toast } from 'sonner';
 
+export const runtime = 'edge';
+
 interface ConsultationDetail {
   id: number;
   formData: TikTokConsultFormData;

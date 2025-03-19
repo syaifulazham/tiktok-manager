@@ -26,6 +26,7 @@ async function build() {
   }
   
   // Run Next.js build with ESLint checks disabled
+  // Use --no-lint to skip linting during build
   runCommand('npx next build --no-lint');
   
   console.log('Build completed successfully!');
