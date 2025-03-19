@@ -54,10 +54,10 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(result);
-  } catch (error: any) {
+  } catch (error: Error | unknown) {
     console.error('API error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to generate TikTok consultation' },
+      { error: error instanceof Error ? error.message : 'Failed to generate TikTok consultation' },
       { status: 500 }
     );
   }

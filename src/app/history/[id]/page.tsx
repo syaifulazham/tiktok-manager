@@ -42,9 +42,9 @@ export default function ConsultationDetailPage({
         
         const data = await response.json();
         setConsultation(data);
-      } catch (error: any) {
+      } catch (error: Error | unknown) {
         toast.error('Error', {
-          description: error.message || 'Failed to load consultation'
+          description: error instanceof Error ? error.message : 'Failed to load consultation'
         });
       } finally {
         setIsLoading(false);

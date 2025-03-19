@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -49,9 +48,9 @@ export default function HistoryPage() {
       const data = await response.json();
       setConsultations(data.consultations);
       setPagination(data.pagination);
-    } catch (error: any) {
+    } catch (error: Error | unknown) {
       toast.error('Error', {
-        description: error.message || 'Failed to load consultation history'
+        description: error instanceof Error ? error.message : 'Failed to load consultation history'
       });
     } finally {
       setIsLoading(false);

@@ -61,10 +61,10 @@ export async function GET(
       result: formattedResult,
       createdAt: consultation.createdAt
     });
-  } catch (error: any) {
+  } catch (error: Error | unknown) {
     console.error('API error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch consultation' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch consultation' },
       { status: 500 }
     );
   }

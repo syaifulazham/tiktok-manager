@@ -40,10 +40,10 @@ export async function GET(request: NextRequest) {
         totalPages: Math.ceil(totalCount / limit)
       }
     });
-  } catch (error: any) {
+  } catch (error: Error | unknown) {
     console.error('API error:', error);
     return NextResponse.json(
-      { error: error.message || 'Failed to fetch consultation history' },
+      { error: error instanceof Error ? error.message : 'Failed to fetch consultation history' },
       { status: 500 }
     );
   }
