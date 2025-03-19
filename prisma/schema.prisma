@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Consultation {
+  id                Int      @id @default(autoincrement())
+  productCategory   String
+  productName       String
+  productDescription String   @db.Text
+  expression        String
+  language          String
+  videoStoryline    String   @db.Text
+  dialogueParts     String   @db.Text
+  captions          String   @db.Text
+  soundType         String   @db.Text
+  uploadTime        String   @db.Text
+  dos               Json     // Stored as JSON array
+  donts             Json     // Stored as JSON array
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
