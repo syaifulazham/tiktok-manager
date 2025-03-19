@@ -85,7 +85,7 @@ export function ResultCard({ result, onReset }: ResultCardProps) {
               />
               
               <StepCard
-                title="Don'ts"
+                title="Don&apos;ts"
                 icon={<X className="h-5 w-5" />}
                 colorClass="text-red-500"
                 content={result.dosDonts.donts}

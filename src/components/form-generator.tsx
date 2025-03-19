@@ -54,9 +54,9 @@ export function FormGenerator({ onResult }: FormGeneratorProps) {
 
       const result = await response.json();
       onResult(result);
-    } catch (error: any) {
+    } catch (error: Error | unknown) {
       toast.error('Error', {
-        description: error.message || 'Something went wrong',
+        description: error instanceof Error ? error.message : 'Something went wrong',
       });
     } finally {
       setIsLoading(false);

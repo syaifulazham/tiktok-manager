@@ -82,7 +82,7 @@ export async function generateTikTokConsult(
 }
 
 // Helper function to ensure a value is a string
-function ensureString(value: any): string {
+function ensureString(value: unknown): string {
   if (typeof value === 'string') {
     return value;
   }
@@ -96,7 +96,7 @@ function ensureString(value: any): string {
 }
 
 // Helper function to ensure a value is an array of strings
-function ensureStringArray(value: any): string[] {
+function ensureStringArray(value: unknown): string[] {
   if (Array.isArray(value)) {
     return value.map(item => ensureString(item));
   }
